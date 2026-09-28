@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>NS.collection | The Name of Trust</title>
+<meta name="description" content="NS.collection online store — customized gifts, ladies accessories, bags, watches and more. Karachi delivery available.">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="top">
+  <div class="logo">🤍 NS.collection 🤍<small>The Name of Trust</small></div>
+  <nav><a href="#home">Home</a><a href="#shop">Shop</a><a href="#about">About</a><a href="#contact">Contact</a></nav>
+  <a class="wa mini" href="https://wa.me/923148099837" target="_blank">WhatsApp</a>
+</header>
+
+<section id="home" class="hero">
+  <div>
+    <span class="pill">✨ NEW ARRIVALS & SALE</span>
+    <h1>Beautiful Things.<br><em>Made With Trust.</em></h1>
+    <p>Discover elegant gifts, accessories and customized products from NS.collection.</p>
+    <div class="actions"><a class="btn" href="#shop">Shop Collection</a><a class="btn ghost" href="https://wa.me/923148099837?text=Assalam-o-Alaikum%20NS.collection%2C%20I%20want%20to%20place%20an%20order." target="_blank">Order on WhatsApp</a></div>
+  </div>
+</section>
+
+<section class="strip">
+  <div>🚚 <b>Karachi Delivery</b><span>COD Available</span></div>
+  <div>🎁 <b>Customized Gifts</b><span>Made for you</span></div>
+  <div>💬 <b>WhatsApp Orders</b><span>03148099837</span></div>
+</section>
+
+<section id="shop" class="shop">
+  <div class="heading"><span>OUR STORE</span><h2>Shop Collection</h2><p>Choose a category or search for your favourite product.</p></div>
+  <div class="tools">
+    <input id="search" placeholder="🔎 Search products..." oninput="render()">
+    <select id="cat" onchange="render()"><option value="all">All Categories</option><option value="Bags">Bags</option><option value="Customized">Customized</option><option value="Jewellery">Jewellery</option><option value="Watches">Watches</option><option value="Gifts">Gifts</option><option value="Accessories">Accessories</option></select>
+  </div>
+  <div id="products" class="products"></div>
+</section>
+
+<section class="sale">
+  <div><span>LIMITED OFFER</span><h2>Dhamaka Sale</h2><p>Special offers on selected NS.collection products. Contact us on WhatsApp for current availability and prices.</p></div>
+  <a class="btn" href="https://wa.me/923148099837?text=Assalam-o-Alaikum%2C%20please%20share%20your%20current%20sale%20products." target="_blank">View Sale on WhatsApp</a>
+</section>
+
+<section id="about" class="about">
+  <div class="heading"><span>ABOUT NS.COLLECTION</span><h2>The Name of Trust</h2></div>
+  <p>NS.collection brings together stylish, useful and customizable products for gifting and everyday use. We focus on attractive presentation, product variety and simple WhatsApp ordering.</p>
+  <div class="checks"><span>✓ Quality-focused selection</span><span>✓ Customized products</span><span>✓ Cash on Delivery</span><span>✓ Karachi delivery</span></div>
+</section>
+
+<section id="contact" class="contact">
+  <div class="heading"><span>CONTACT</span><h2>Let's Talk</h2></div>
+  <div class="contactbox">
+    <p>📲 <b>WhatsApp</b><br>03148099837</p>
+    <p>🚚 <b>Delivery</b><br>Available in Karachi</p>
+    <p>💳 <b>Payment</b><br>Cash on Delivery Available</p>
+    <a class="btn" href="https://wa.me/923148099837?text=Assalam-o-Alaikum%20NS.collection%2C%20I%20need%20product%20details." target="_blank">Chat on WhatsApp</a>
+  </div>
+</section>
+
+<footer><strong>🤍 NS.collection 🤍</strong><br><small>The Name of Trust</small><p>جَزَاكَ اللَّهُ خَيْرًا</p></footer>
+
+<script>
+const products=[
+{name:"Elegant Tote Bag",cat:"Bags",price:"Ask on WhatsApp",emoji:"👜",desc:"Big-size daily-use stylish tote bag."},
+{name:"2 Pcs Purse Set",cat:"Bags",price:"Ask on WhatsApp",emoji:"👛",desc:"Mobile pouch included with long adjustable belt."},
+{name:"Customized Name Ladies Shawl",cat:"Customized",price:"From Rs. 1650",emoji:"🧣",desc:"Premium wool shawl with customized name option."},
+{name:"Customized Magic Mirror Frame",cat:"Customized",price:"Ask on WhatsApp",emoji:"🪞",desc:"Personalized frame with your name and picture."},
+{name:"Gift Box For Her",cat:"Gifts",price:"Ask on WhatsApp",emoji:"🎁",desc:"Beautiful gift-ready jewellery and accessories set."},
+{name:"Zirqoon Combo Set For Her",cat:"Jewellery",price:"Ask on WhatsApp",emoji:"💎",desc:"Elegant bangle and adjustable ring combo."},
+{name:"Ladies Gift Set",cat:"Gifts",price:"Ask on WhatsApp",emoji:"🎀",desc:"Watch and heart locket gift set."},
+{name:"Stylish Watch Collection",cat:"Watches",price:"Ask on WhatsApp",emoji:"⌚",desc:"Elegant watches for everyday and gifting."},
+{name:"Handmade Beaded Keychain",cat:"Accessories",price:"Ask on WhatsApp",emoji:"🔑",desc:"Beautiful handmade beaded keychain."},
+{name:"Personalized Name Bracelet",cat:"Accessories",price:"Ask on WhatsApp",emoji:"📿",desc:"Personalized bracelet made for your style."},
+{name:"Wallet & Keychain Gift Deal",cat:"Gifts",price:"Ask on WhatsApp",emoji:"🎁",desc:"Gift-ready wallet and keychain combination."},
+{name:"Ladies Accessories",cat:"Accessories",price:"Ask on WhatsApp",emoji:"✨",desc:"New accessories added regularly."}
+];
+function wa(name){return "https://wa.me/923148099837?text="+encodeURIComponent("Assalam-o-Alaikum NS.collection, mujhe \""+name+"\" ki details/price chahiye.");}
+function render(){
+ const q=document.getElementById("search").value.toLowerCase(), c=document.getElementById("cat").value;
+ const list=products.filter(p=>(c==="all"||p.cat===c)&&(p.name.toLowerCase().includes(q)||p.desc.toLowerCase().includes(q)));
+ document.getElementById("products").innerHTML=list.map(p=>`<article class="card"><div class="pic">${p.emoji}</div><span class="tag">${p.cat}</span><h3>${p.name}</h3><p>${p.desc}</p><b>${p.price}</b><a class="order" href="${wa(p.name)}" target="_blank">Order / Ask Details →</a></article>`).join("")||"<p class='empty'>No products found. Try another search.</p>";
+}
+render();
+</script>
+</body>
+</html>
