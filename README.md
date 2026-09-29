@@ -1,1 +1,1 @@
-www.NS.collection.com
+NS.collection
